@@ -151,7 +151,7 @@ export default function History() {
                         {/* Timeline dot */}
                         <span
                           className="absolute -left-[30px] top-5 w-3 h-3 rounded-full ring-4"
-                          style={{ background: dot.color, boxShadow: dot.glow, ringColor: "#000000" }}
+                          style={{ background: dot.color, boxShadow: dot.glow, ["--tw-ring-color" as any]: "#000000" }}
                         />
                         {/* Colored left accent */}
                         <div

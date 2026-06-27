@@ -362,6 +362,9 @@
 .sp-icon-white   { background: rgba(255,255,255,0.1); color: #ffffff; }
 .sp-icon-dark    { background: rgba(255,255,255,0.05); color: #a3a3a3; }
 .sp-icon-error   { background: rgba(239,68,68,0.15);   color: #f87171; } /* Keeping one semantic error */
+/* Legacy aliases — map into the blue/white scheme so older usages still render. */
+.sp-icon-violet  { background: rgba(59,130,246,0.15); color: #60a5fa; }
+.sp-icon-teal    { background: rgba(255,255,255,0.1);  color: #ffffff; }
 
 /* ── Gradient text utilities ───────────────────────────────────────── */
 .sp-gradient-text-blue {
