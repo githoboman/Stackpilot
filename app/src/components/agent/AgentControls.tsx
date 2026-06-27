@@ -30,10 +30,10 @@ const ALERT_ICON: Record<AgentAlert["level"], string> = {
   success: "check_circle",
 };
 const ALERT_COLOR: Record<AgentAlert["level"], string> = {
-  info: "text-[#a78bfa]",
-  warning: "text-[#f59e0b]",
-  error: "text-[#f87171]",
-  success: "text-[#2dd4bf]",
+  info: "text-[#60a5fa]",
+  warning: "text-[#3b82f6]",
+  error: "text-[#cbd5e1]",
+  success: "text-[#60a5fa]",
 };
 
 export function AgentControls() {
@@ -126,8 +126,8 @@ export function AgentControls() {
     <div className="relative min-h-full font-inter overflow-hidden" style={{ background: "#0a0d12" }}>
       {/* Background orbs */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] opacity-15 pointer-events-none" style={{ background: "radial-gradient(circle, #ff6a4d, transparent 70%)", filter: "blur(70px)" }} />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-15 pointer-events-none" style={{ background: "radial-gradient(circle, #8b5cf6, transparent 70%)", filter: "blur(80px)" }} />
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] opacity-15 pointer-events-none" style={{ background: "radial-gradient(circle, #3b82f6, transparent 70%)", filter: "blur(70px)" }} />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-15 pointer-events-none" style={{ background: "radial-gradient(circle, #3b82f6, transparent 70%)", filter: "blur(80px)" }} />
       </div>
 
       <div className="relative z-10 max-w-[1280px] mx-auto p-6 md:p-8 grid grid-cols-1 xl:grid-cols-12 gap-8">
@@ -140,7 +140,7 @@ export function AgentControls() {
               {bound && status?.policyId && (
                 <span
                   className="inline-flex items-center px-3 py-1.5 rounded-xl text-[12px] font-mono font-bold tracking-wider uppercase mt-1 md:mt-0"
-                  style={{ background: "rgba(139,92,246,0.12)", color: "#a78bfa", border: "1px solid rgba(139,92,246,0.25)" }}
+                  style={{ background: "rgba(59,130,246,0.12)", color: "#60a5fa", border: "1px solid rgba(59,130,246,0.25)" }}
                 >
                   <span className="material-symbols-outlined text-[14px] mr-1.5">tag</span>
                   POL-{status.policyId}
@@ -150,10 +150,10 @@ export function AgentControls() {
             <div className="flex flex-wrap items-center gap-4 mt-2">
               <div
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full"
-                style={{ background: "rgba(16,185,129,0.12)", border: "1px solid rgba(16,185,129,0.25)" }}
+                style={{ background: "rgba(59,130,246,0.12)", border: "1px solid rgba(59,130,246,0.25)" }}
               >
-                <div className="w-2 h-2 rounded-full bg-[#10B981] shadow-[0_0_8px_#10B981]" />
-                <span className="font-mono text-[13px] font-bold text-[#2dd4bf]">
+                <div className="w-2 h-2 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6]" />
+                <span className="font-mono text-[13px] font-bold text-[#60a5fa]">
                   {status?.agentAddress?.slice(0, 5)}…{status?.agentAddress?.slice(-4)}
                 </span>
               </div>
@@ -168,7 +168,7 @@ export function AgentControls() {
           {!status ? (
             <div
               className="rounded-3xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6"
-              style={{ background: "rgba(24,29,39,0.5)", border: "1px solid rgba(139,92,246,0.2)", backdropFilter: "blur(16px)" }}
+              style={{ background: "rgba(24,29,39,0.5)", border: "1px solid rgba(59,130,246,0.2)", backdropFilter: "blur(16px)" }}
             >
               <div>
                 <h3 className="text-[18px] font-bold text-on-surface mb-1">Initialize Agent Wallet</h3>
@@ -178,7 +178,7 @@ export function AgentControls() {
                 onClick={() => initWallet()}
                 disabled={busy === "init"}
                 className="shrink-0 inline-flex items-center gap-2.5 px-6 py-3 rounded-xl text-[14px] font-bold text-white transition-all active:scale-[0.97] disabled:opacity-50 sp-pulse-ring-violet"
-                style={{ background: "linear-gradient(135deg, #8b5cf6, #6d28d9)", boxShadow: "0 8px 24px rgba(139,92,246,0.3)" }}
+                style={{ background: "linear-gradient(135deg, #3b82f6, #1e3a8a)", boxShadow: "0 8px 24px rgba(59,130,246,0.3)" }}
               >
                 <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>
                   {busy === "init" ? "sync" : "rocket_launch"}
@@ -222,7 +222,7 @@ export function AgentControls() {
                   <h3 className="text-[14px] font-bold uppercase tracking-widest text-outline">Quick Command</h3>
                   <button
                     onClick={() => navigate("/agent")}
-                    className="text-[12px] font-semibold text-[#8b5cf6] hover:text-[#a78bfa] flex items-center gap-1 transition-colors"
+                    className="text-[12px] font-semibold text-[#3b82f6] hover:text-[#60a5fa] flex items-center gap-1 transition-colors"
                   >
                     Go to chat <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                   </button>
@@ -235,8 +235,8 @@ export function AgentControls() {
                   className="flex items-center gap-3 rounded-2xl pl-5 pr-2 py-2 transition-all"
                   style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.1)" }}
                   onFocusCapture={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,106,77,0.45)";
-                    (e.currentTarget as HTMLElement).style.boxShadow = "0 0 0 3px rgba(255,106,77,0.12)";
+                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,130,246,0.45)";
+                    (e.currentTarget as HTMLElement).style.boxShadow = "0 0 0 3px rgba(59,130,246,0.12)";
                   }}
                   onBlurCapture={(e) => {
                     (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.1)";
@@ -254,7 +254,7 @@ export function AgentControls() {
                     type="submit"
                     disabled={busy === "thinking" || !instruction.trim()}
                     className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all active:scale-95 disabled:opacity-40 text-white"
-                    style={{ background: "linear-gradient(135deg, #ff6a4d, #f59e0b)", boxShadow: instruction.trim() ? "0 4px 12px rgba(255,106,77,0.3)" : "none" }}
+                    style={{ background: "linear-gradient(135deg, #3b82f6, #3b82f6)", boxShadow: instruction.trim() ? "0 4px 12px rgba(59,130,246,0.3)" : "none" }}
                   >
                     <span className="material-symbols-outlined text-[20px]">arrow_upward</span>
                   </button>
@@ -268,8 +268,8 @@ export function AgentControls() {
                       className="text-[12px] font-mono px-3.5 py-2 rounded-xl transition-all disabled:opacity-50"
                       style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#94a3b8" }}
                       onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,106,77,0.4)";
-                        (e.currentTarget as HTMLElement).style.color = "#ff8a70";
+                        (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,130,246,0.4)";
+                        (e.currentTarget as HTMLElement).style.color = "#60a5fa";
                       }}
                       onMouseLeave={(e) => {
                         (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)";
@@ -281,7 +281,7 @@ export function AgentControls() {
                   ))}
                 </div>
                 {lastResult && <StrategyResult result={lastResult} />}
-                {error && <p className="mt-4 text-[13px] text-[#f87171] flex items-center gap-1.5"><span className="material-symbols-outlined text-[16px]">error</span> {error}</p>}
+                {error && <p className="mt-4 text-[13px] text-[#cbd5e1] flex items-center gap-1.5"><span className="material-symbols-outlined text-[16px]">error</span> {error}</p>}
               </div>
 
               {/* Two-pane: Execution log + Policy state control */}
@@ -305,16 +305,16 @@ export function AgentControls() {
                         >
                           <div className="flex items-center justify-between mb-2">
                             <span className="font-mono text-[11px] font-bold text-outline uppercase tracking-wider">Run #{r.n}</span>
-                            <span className={`material-symbols-outlined text-[16px] ${r.ok ? "text-[#14b8a6]" : "text-[#f59e0b]"}`}>
+                            <span className={`material-symbols-outlined text-[16px] ${r.ok ? "text-[#3b82f6]" : "text-[#3b82f6]"}`}>
                               {r.ok ? "check_circle" : "warning"}
                             </span>
                           </div>
                           {r.ok ? (
                             <div className="text-[14px] font-medium text-on-surface">
-                              Swapped <span className="font-mono text-[#ff8a70]">{dca.amount && (Number(dca.amount) / 1e6).toLocaleString()} STX</span> → <span className="font-mono text-[#fbbf24]">sBTC</span>
+                              Swapped <span className="font-mono text-[#60a5fa]">{dca.amount && (Number(dca.amount) / 1e6).toLocaleString()} STX</span> → <span className="font-mono text-[#60a5fa]">sBTC</span>
                             </div>
                           ) : (
-                            <div className="text-[13px] text-[#f59e0b] leading-snug">{r.reason ?? "Execution failed"}</div>
+                            <div className="text-[13px] text-[#3b82f6] leading-snug">{r.reason ?? "Execution failed"}</div>
                           )}
                           {r.txid && (
                             <div className="flex items-center justify-between mt-3 pt-3 border-t border-outline-variant/10">
@@ -323,7 +323,7 @@ export function AgentControls() {
                                 href={`https://explorer.hiro.so/txid/${r.txid}?chain=testnet`}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="text-[#a78bfa] hover:text-[#8b5cf6] transition-colors"
+                                className="text-[#60a5fa] hover:text-[#3b82f6] transition-colors"
                               >
                                 <span className="material-symbols-outlined text-[16px]">open_in_new</span>
                               </a>
@@ -353,9 +353,9 @@ export function AgentControls() {
                         onClick={() => pause()}
                         disabled={!busyIdle || !policy?.isActive}
                         className="flex-1 rounded-xl py-3 text-[13px] font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-30"
-                        style={{ background: "rgba(245,158,11,0.12)", color: "#fbbf24", border: "1px solid rgba(245,158,11,0.25)" }}
-                        onMouseEnter={(e) => { if (busyIdle && policy?.isActive) (e.currentTarget as HTMLElement).style.background = "rgba(245,158,11,0.2)"; }}
-                        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(245,158,11,0.12)"; }}
+                        style={{ background: "rgba(59,130,246,0.12)", color: "#60a5fa", border: "1px solid rgba(59,130,246,0.25)" }}
+                        onMouseEnter={(e) => { if (busyIdle && policy?.isActive) (e.currentTarget as HTMLElement).style.background = "rgba(59,130,246,0.2)"; }}
+                        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(59,130,246,0.12)"; }}
                       >
                         <span className="material-symbols-outlined text-[18px]">pause</span> Pause Agent
                       </button>
@@ -363,9 +363,9 @@ export function AgentControls() {
                         onClick={() => resume()}
                         disabled={!busyIdle || policy?.isActive}
                         className="flex-1 rounded-xl py-3 text-[13px] font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-30"
-                        style={{ background: "rgba(20,184,166,0.12)", color: "#2dd4bf", border: "1px solid rgba(20,184,166,0.25)" }}
-                        onMouseEnter={(e) => { if (busyIdle && !policy?.isActive) (e.currentTarget as HTMLElement).style.background = "rgba(20,184,166,0.2)"; }}
-                        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(20,184,166,0.12)"; }}
+                        style={{ background: "rgba(59,130,246,0.12)", color: "#60a5fa", border: "1px solid rgba(59,130,246,0.25)" }}
+                        onMouseEnter={(e) => { if (busyIdle && !policy?.isActive) (e.currentTarget as HTMLElement).style.background = "rgba(59,130,246,0.2)"; }}
+                        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(59,130,246,0.12)"; }}
                       >
                         <span className="material-symbols-outlined text-[18px]">play_arrow</span> Resume
                       </button>
@@ -445,17 +445,17 @@ function DcaCard({
       className="rounded-3xl p-8 relative overflow-hidden group transition-all"
       style={{
         background: "linear-gradient(135deg, rgba(24,29,39,0.7), rgba(24,29,39,0.5))",
-        border: active ? "1px solid rgba(245,158,11,0.3)" : "1px solid rgba(255,106,77,0.25)",
+        border: active ? "1px solid rgba(59,130,246,0.3)" : "1px solid rgba(59,130,246,0.25)",
         backdropFilter: "blur(16px)",
       }}
     >
       {/* Top gradient border accent */}
       <div
         className="absolute top-0 left-0 right-0 h-1"
-        style={{ background: active ? "linear-gradient(90deg, #f59e0b, #d97706)" : "linear-gradient(90deg, #ff6a4d, #f59e0b)" }}
+        style={{ background: active ? "linear-gradient(90deg, #3b82f6, #1e3a8a)" : "linear-gradient(90deg, #3b82f6, #3b82f6)" }}
       />
       <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full blur-3xl pointer-events-none opacity-20"
-        style={{ background: active ? "#f59e0b" : "#ff6a4d" }}
+        style={{ background: active ? "#3b82f6" : "#3b82f6" }}
       />
 
       <div className="flex items-start justify-between mb-8 relative z-10">
@@ -463,9 +463,9 @@ function DcaCard({
           <h2 className="text-[26px] font-bold text-on-surface flex items-center gap-3 tracking-tight">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-              style={{ background: active ? "rgba(245,158,11,0.15)" : "rgba(255,106,77,0.15)" }}
+              style={{ background: active ? "rgba(59,130,246,0.15)" : "rgba(59,130,246,0.15)" }}
             >
-              <span className="material-symbols-outlined text-[20px]" style={{ color: active ? "#f59e0b" : "#ff6a4d" }}>autorenew</span>
+              <span className="material-symbols-outlined text-[20px]" style={{ color: active ? "#3b82f6" : "#3b82f6" }}>autorenew</span>
             </div>
             Auto-DCA
           </h2>
@@ -476,7 +476,7 @@ function DcaCard({
         {active && (
           <div className="text-right px-4 py-2.5 rounded-xl bg-surface-dim border border-outline-variant/10">
             <div className="font-mono text-[11px] font-bold tracking-widest uppercase text-outline mb-1">Next Run</div>
-            <div className="text-[22px] font-bold text-[#fbbf24] font-mono leading-none">
+            <div className="text-[22px] font-bold text-[#60a5fa] font-mono leading-none">
               <DcaCountdown nextRunAt={dca!.nextRunAt} />
             </div>
           </div>
@@ -492,7 +492,7 @@ function DcaCard({
                 <input
                   value={amount}
                   onChange={(e) => setAmount(e.target.value.replace(/[^\d.]/g, ""))}
-                  className="w-full bg-black/20 border border-outline-variant/20 rounded-xl py-3.5 px-4 font-mono text-[15px] text-on-surface focus:border-[#ff6a4d]/50 outline-none transition-colors"
+                  className="w-full bg-black/20 border border-outline-variant/20 rounded-xl py-3.5 px-4 font-mono text-[15px] text-on-surface focus:border-[#3b82f6]/50 outline-none transition-colors"
                   inputMode="decimal"
                 />
                 <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-[18px] text-outline">currency_bitcoin</span>
@@ -504,7 +504,7 @@ function DcaCard({
                 <input
                   value={intervalMin}
                   onChange={(e) => setIntervalMin(e.target.value.replace(/[^\d]/g, ""))}
-                  className="w-full bg-black/20 border border-outline-variant/20 rounded-xl py-3.5 px-4 font-mono text-[15px] text-on-surface focus:border-[#ff6a4d]/50 outline-none transition-colors"
+                  className="w-full bg-black/20 border border-outline-variant/20 rounded-xl py-3.5 px-4 font-mono text-[15px] text-on-surface focus:border-[#3b82f6]/50 outline-none transition-colors"
                   inputMode="numeric"
                 />
                 <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-[18px] text-outline">timer</span>
@@ -513,14 +513,14 @@ function DcaCard({
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-outline-variant/20 pt-6 relative z-10 gap-6">
             <div className="flex gap-8">
-              <Stat label="Est. Per Run" value={`${amount} STX`} color="#ff8a70" />
-              <Stat label="Pair" value="STX → sBTC" color="#fbbf24" />
+              <Stat label="Est. Per Run" value={`${amount} STX`} color="#60a5fa" />
+              <Stat label="Pair" value="STX → sBTC" color="#60a5fa" />
             </div>
             <button
               onClick={onStart}
               disabled={busy || Number(amount) <= 0}
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl text-[14px] font-bold text-white transition-all active:scale-[0.97] disabled:opacity-50 sp-pulse-ring shrink-0"
-              style={{ background: "linear-gradient(135deg, #ff6a4d, #f59e0b)", boxShadow: "0 8px 24px rgba(255,106,77,0.3)" }}
+              style={{ background: "linear-gradient(135deg, #3b82f6, #3b82f6)", boxShadow: "0 8px 24px rgba(59,130,246,0.3)" }}
             >
               {busy ? "Starting…" : "Start Auto-DCA"}
               <span className="material-symbols-outlined text-[18px]">play_arrow</span>
@@ -530,13 +530,13 @@ function DcaCard({
       ) : (
         <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-outline-variant/20 pt-6 relative z-10 gap-6">
           <div className="flex gap-8">
-            <Stat label="Amount" value={`${estPerRun} STX`} color="#ff8a70" />
-            <Stat label="Executions" value={`${dca!.runs} / ${dca!.maxRuns} max`} color="#fbbf24" />
+            <Stat label="Amount" value={`${estPerRun} STX`} color="#60a5fa" />
+            <Stat label="Executions" value={`${dca!.runs} / ${dca!.maxRuns} max`} color="#60a5fa" />
           </div>
           <button
             onClick={onStop}
             className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl text-[14px] font-bold transition-all active:scale-[0.97] shrink-0"
-            style={{ background: "rgba(239,68,68,0.12)", color: "#f87171", border: "1px solid rgba(239,68,68,0.25)" }}
+            style={{ background: "rgba(148,163,184,0.12)", color: "#cbd5e1", border: "1px solid rgba(148,163,184,0.25)" }}
           >
             Stop Auto-DCA
             <span className="material-symbols-outlined text-[18px]">stop</span>
@@ -574,15 +574,15 @@ function CreatePolicyCard({
   return (
     <div
       className="rounded-3xl p-8 space-y-8 relative overflow-hidden"
-      style={{ background: "rgba(24,29,39,0.5)", border: "1px solid rgba(139,92,246,0.25)", backdropFilter: "blur(16px)" }}
+      style={{ background: "rgba(24,29,39,0.5)", border: "1px solid rgba(59,130,246,0.25)", backdropFilter: "blur(16px)" }}
     >
-      <div className="absolute top-0 left-0 right-0 h-1" style={{ background: "linear-gradient(90deg, #8b5cf6, #2dd4bf)" }} />
+      <div className="absolute top-0 left-0 right-0 h-1" style={{ background: "linear-gradient(90deg, #3b82f6, #60a5fa)" }} />
 
       <div className="flex items-center justify-between">
         <h2 className="text-[26px] font-bold text-on-surface tracking-tight">Create policy</h2>
         <span
           className="inline-flex items-center gap-1.5 text-[11px] font-bold tracking-wider px-3 py-1.5 rounded-full uppercase"
-          style={{ background: "rgba(139,92,246,0.15)", color: "#a78bfa", border: "1px solid rgba(139,92,246,0.3)" }}
+          style={{ background: "rgba(59,130,246,0.15)", color: "#60a5fa", border: "1px solid rgba(59,130,246,0.3)" }}
         >
           <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'FILL' 1" }}>lock</span> On-Chain Enforced
         </span>
@@ -594,7 +594,7 @@ function CreatePolicyCard({
           <input
             value={budgetStx}
             onChange={(e) => setBudgetStx(e.target.value.replace(/[^\d.]/g, ""))}
-            className="w-full bg-black/20 border border-outline-variant/20 rounded-xl py-4 px-5 pr-16 font-mono text-[16px] text-on-surface focus:border-[#a78bfa]/50 outline-none transition-colors"
+            className="w-full bg-black/20 border border-outline-variant/20 rounded-xl py-4 px-5 pr-16 font-mono text-[16px] text-on-surface focus:border-[#60a5fa]/50 outline-none transition-colors"
             inputMode="decimal"
           />
           <span className="absolute right-5 top-1/2 -translate-y-1/2 text-[14px] font-bold text-outline">STX</span>
@@ -616,7 +616,7 @@ function CreatePolicyCard({
                 onClick={() => toggleAsset(a)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-[14px] font-bold border transition-all ${
                   on
-                    ? "bg-[#f59e0b]/10 border-[#f59e0b]/30 text-[#fbbf24] shadow-[0_0_12px_rgba(245,158,11,0.15)]"
+                    ? "bg-[#3b82f6]/10 border-[#3b82f6]/30 text-[#60a5fa] shadow-[0_0_12px_rgba(59,130,246,0.15)]"
                     : "bg-transparent border-dashed border-outline-variant/40 text-outline hover:border-outline-variant"
                 }`}
               >
@@ -634,7 +634,7 @@ function CreatePolicyCard({
           type="number"
           value={expiryHours}
           onChange={(e) => setExpiryHours(Number(e.target.value))}
-          className="w-full bg-black/20 border border-outline-variant/20 rounded-xl py-4 px-5 font-mono text-[16px] text-on-surface focus:border-[#a78bfa]/50 outline-none transition-colors"
+          className="w-full bg-black/20 border border-outline-variant/20 rounded-xl py-4 px-5 font-mono text-[16px] text-on-surface focus:border-[#60a5fa]/50 outline-none transition-colors"
           min={1}
         />
         <p className="text-[12px] text-outline mt-2 font-mono flex items-center gap-1.5">
@@ -645,9 +645,9 @@ function CreatePolicyCard({
 
       <div
         className="rounded-2xl p-4 flex gap-3 items-start"
-        style={{ background: "rgba(20,184,166,0.1)", border: "1px solid rgba(20,184,166,0.2)" }}
+        style={{ background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.2)" }}
       >
-        <span className="material-symbols-outlined text-[#2dd4bf] text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>info</span>
+        <span className="material-symbols-outlined text-[#60a5fa] text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>info</span>
         <p className="text-[13px] text-on-surface-variant leading-relaxed">
           Protocol is strictly limited to Bitflow. Assets and protocols not listed here are blocked on-chain by the Clarity policy.
         </p>
@@ -657,7 +657,7 @@ function CreatePolicyCard({
         onClick={onSubmit}
         disabled={!busyIdle || form.allowedAssets.length === 0 || Number(budgetStx) <= 0}
         className="w-full rounded-xl py-4 text-[15px] font-bold disabled:opacity-50 flex items-center justify-center gap-2 transition-all active:scale-[0.98] text-white sp-pulse-ring-violet"
-        style={{ background: "linear-gradient(135deg, #8b5cf6, #6d28d9)", boxShadow: "0 8px 24px rgba(139,92,246,0.35)" }}
+        style={{ background: "linear-gradient(135deg, #3b82f6, #1e3a8a)", boxShadow: "0 8px 24px rgba(59,130,246,0.35)" }}
       >
         {busy === "creating" || busy === "binding" ? (busy === "binding" ? "Confirming on-chain…" : "Awaiting signature…") : "Create policy"}
       </button>
@@ -700,10 +700,10 @@ function ActivePolicyDrawer({
           className="px-3 py-1.5 rounded-lg text-[11px] font-mono font-bold tracking-widest border"
           style={
             policy?.revoked
-              ? { background: "rgba(239,68,68,0.12)", color: "#f87171", borderColor: "rgba(239,68,68,0.25)" }
+              ? { background: "rgba(148,163,184,0.12)", color: "#cbd5e1", borderColor: "rgba(148,163,184,0.25)" }
               : policy?.isActive
-              ? { background: "rgba(20,184,166,0.12)", color: "#2dd4bf", borderColor: "rgba(20,184,166,0.25)" }
-              : { background: "rgba(245,158,11,0.12)", color: "#fbbf24", borderColor: "rgba(245,158,11,0.25)" }
+              ? { background: "rgba(59,130,246,0.12)", color: "#60a5fa", borderColor: "rgba(59,130,246,0.25)" }
+              : { background: "rgba(59,130,246,0.12)", color: "#60a5fa", borderColor: "rgba(59,130,246,0.25)" }
           }
         >
           {policy?.revoked ? "REVOKED" : policy?.isActive ? "LOCKED" : "PAUSED"}
@@ -715,7 +715,7 @@ function ActivePolicyDrawer({
         <div>
           <div className="flex justify-between items-end mb-3">
             <h4 className="text-[12px] font-bold uppercase tracking-wider text-outline flex items-center gap-2">
-              <span className="material-symbols-outlined text-[14px] text-[#ff8a70]">savings</span>
+              <span className="material-symbols-outlined text-[14px] text-[#60a5fa]">savings</span>
               Stipend Usage
             </h4>
             <div className="text-right">
@@ -724,7 +724,7 @@ function ActivePolicyDrawer({
             </div>
           </div>
           <div className="h-3 w-full rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
-            <div className="h-full rounded-full transition-all" style={{ width: `${usedPct}%`, background: "linear-gradient(90deg, #ff6a4d, #f59e0b, #14b8a6)" }} />
+            <div className="h-full rounded-full transition-all" style={{ width: `${usedPct}%`, background: "linear-gradient(90deg, #3b82f6, #3b82f6, #3b82f6)" }} />
           </div>
           <p className="font-mono text-[11px] text-outline mt-2.5 text-right font-bold">{usedPct}% Utilized</p>
         </div>
@@ -734,7 +734,7 @@ function ActivePolicyDrawer({
           <div className="p-4 rounded-2xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
             <span className="text-[11px] font-bold uppercase tracking-wider text-outline block mb-2">Expiry Frame</span>
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-[18px] text-[#fbbf24]">hourglass_empty</span>
+              <span className="material-symbols-outlined text-[18px] text-[#60a5fa]">hourglass_empty</span>
               <span className="font-mono text-[15px] font-bold text-on-surface">{policy ? `~${daysLeft.toFixed(1)} Days` : "—"}</span>
             </div>
             {policy && <span className="font-mono text-[11px] text-outline block mt-2">Block {Number(policy.expiryBurnHeight).toLocaleString()}</span>}
@@ -758,9 +758,9 @@ function ActivePolicyDrawer({
               <div
                 key={a}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-on-surface font-bold"
-                style={{ background: "rgba(139,92,246,0.12)", border: "1px solid rgba(139,92,246,0.25)" }}
+                style={{ background: "rgba(59,130,246,0.12)", border: "1px solid rgba(59,130,246,0.25)" }}
               >
-                <span className="material-symbols-outlined text-[14px] text-[#a78bfa]">lock</span>
+                <span className="material-symbols-outlined text-[14px] text-[#60a5fa]">lock</span>
                 <span className="font-mono text-[13px]">{a}</span>
               </div>
             ))}
@@ -774,9 +774,9 @@ function ActivePolicyDrawer({
           onClick={onRevoke}
           disabled={busy}
           className="w-full py-4 rounded-xl flex items-center justify-center gap-2.5 font-bold text-[14px] transition-all disabled:opacity-50 active:scale-[0.98]"
-          style={{ background: "rgba(239,68,68,0.1)", color: "#f87171", border: "1px solid rgba(239,68,68,0.25)" }}
-          onMouseEnter={(e) => { if (!busy) (e.currentTarget as HTMLElement).style.background = "rgba(239,68,68,0.15)"; }}
-          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(239,68,68,0.1)"; }}
+          style={{ background: "rgba(148,163,184,0.1)", color: "#cbd5e1", border: "1px solid rgba(148,163,184,0.25)" }}
+          onMouseEnter={(e) => { if (!busy) (e.currentTarget as HTMLElement).style.background = "rgba(148,163,184,0.15)"; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(148,163,184,0.1)"; }}
         >
           <span className="material-symbols-outlined text-[20px]">gavel</span>
           {busy ? "Revoking…" : "Revoke Policy On-Chain"}
@@ -806,18 +806,18 @@ function StrategyResult({ result }: { result: IntentResult }) {
   return (
     <div
       className="mt-5 rounded-2xl overflow-hidden transition-all"
-      style={{ background: "rgba(0,0,0,0.2)", border: `1px solid ${ok ? "rgba(20,184,166,0.25)" : "rgba(239,68,68,0.25)"}` }}
+      style={{ background: "rgba(0,0,0,0.2)", border: `1px solid ${ok ? "rgba(59,130,246,0.25)" : "rgba(148,163,184,0.25)"}` }}
     >
       <div className="px-5 py-3 border-b border-outline-variant/10 flex items-center justify-between bg-black/20">
         <span className="text-[11px] font-bold uppercase tracking-wider text-outline flex items-center gap-1.5">
-          <span className="material-symbols-outlined text-[16px]" style={{ color: ok ? "#2dd4bf" : "#f87171", fontVariationSettings: "'FILL' 1" }}>
+          <span className="material-symbols-outlined text-[16px]" style={{ color: ok ? "#60a5fa" : "#cbd5e1", fontVariationSettings: "'FILL' 1" }}>
             {ok ? "memory" : "error"}
           </span>
           Strategy Parsed
         </span>
         <span
           className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-lg"
-          style={{ background: ok ? "rgba(20,184,166,0.12)" : "rgba(239,68,68,0.12)", color: ok ? "#2dd4bf" : "#f87171" }}
+          style={{ background: ok ? "rgba(59,130,246,0.12)" : "rgba(148,163,184,0.12)", color: ok ? "#60a5fa" : "#cbd5e1" }}
         >
           {armedLabel ?? (ok ? "Executed" : "Rejected")}
         </span>
@@ -826,16 +826,16 @@ function StrategyResult({ result }: { result: IntentResult }) {
         <p className="text-on-surface-variant mb-3 leading-relaxed">
           Understood: <span className="font-semibold text-on-surface">{intent.summary}</span>
         </p>
-        <p className={`font-semibold ${ok ? "text-[#2dd4bf]" : "text-[#f87171]"}`}>{message}</p>
+        <p className={`font-semibold ${ok ? "text-[#60a5fa]" : "text-[#cbd5e1]"}`}>{message}</p>
         {outcome?.txid && (
           <a
             href={`https://explorer.hiro.so/txid/${outcome.txid}?chain=testnet`}
             target="_blank"
             rel="noreferrer"
             className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-bold transition-colors"
-            style={{ color: "#a78bfa" }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#8b5cf6"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#a78bfa"; }}
+            style={{ color: "#60a5fa" }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#3b82f6"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#60a5fa"; }}
           >
             <span className="material-symbols-outlined text-[16px]">open_in_new</span> View on Hiro Explorer
           </a>

@@ -146,7 +146,7 @@ export function OnboardingModal({
           {step === 1 && (
             <div className="flex flex-col items-center">
               {/* Logo */}
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#B7FC0D] to-[#246AFC] p-0.5 mb-6">
+              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#B7FC0D] to-[#1e3a8a] p-0.5 mb-6">
                 <div className="w-full h-full rounded-full bg-[#070B0F] flex items-center justify-center p-3">
                   <img
                     src="/assets/images/signin-logo.png"
@@ -323,7 +323,7 @@ export function OnboardingModal({
                 </>
               ) : (
                 <>
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#B7FC0D]/20 to-[#246AFC]/20 border border-[#B7FC0D]/30 flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#B7FC0D]/20 to-[#1e3a8a]/20 border border-[#B7FC0D]/30 flex items-center justify-center mb-6">
                     <Gift size={28} className="text-[#B7FC0D]" />
                   </div>
 
@@ -368,7 +368,7 @@ export function OnboardingModal({
                       claimState.status !== "idle" &&
                       claimState.status !== "error"
                     }
-                    className="w-full py-4 bg-gradient-to-r from-[#246AFC] to-[#B7FC0D] text-white rounded-full font-bold text-base hover:opacity-90 transition-all shadow-lg shadow-emerald-500/20 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full py-4 bg-gradient-to-r from-[#1e3a8a] to-[#B7FC0D] text-white rounded-full font-bold text-base hover:opacity-90 transition-all shadow-lg shadow-emerald-500/20 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {claimState.status === "verifying" ? (
                       <>
@@ -395,7 +395,7 @@ export function OnboardingModal({
 
           {step === 4 && (
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#B7FC0D]/20 to-[#246AFC]/20 border border-[#B7FC0D]/30 flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#B7FC0D]/20 to-[#1e3a8a]/20 border border-[#B7FC0D]/30 flex items-center justify-center mb-6">
                 <Check size={32} className="text-[#B7FC0D]" />
               </div>
 

@@ -47,7 +47,7 @@ export function NotificationBell() {
     <div className="relative" ref={ref}>
       <button
         onClick={toggle}
-        className="relative flex h-10 w-10 items-center justify-center bg-transparent text-[#5E5E5E] hover:text-zinc-950 active:scale-[0.98] dark:text-zinc-400 dark:hover:text-zinc-200 cursor-pointer"
+        className="relative flex h-10 w-10 items-center justify-center bg-transparent text-[#5e5e5e] hover:text-zinc-950 active:scale-[0.98] dark:text-zinc-400 dark:hover:text-zinc-200 cursor-pointer"
         title="Notifications"
       >
         <img
@@ -58,7 +58,7 @@ export function NotificationBell() {
           className="object-contain flex-shrink-0 dark:[filter:brightness(0)_invert(1)]"
         />
         {unread > 0 && (
-          <span className="absolute top-1.5 right-1.5 min-w-[16px] h-4 px-1 rounded-full bg-[#FF6A4D] text-white text-[10px] font-bold flex items-center justify-center leading-none">
+          <span className="absolute top-1.5 right-1.5 min-w-[16px] h-4 px-1 rounded-full bg-[#3b82f6] text-white text-[10px] font-bold flex items-center justify-center leading-none">
             {unread > 9 ? "9+" : unread}
           </span>
         )}

@@ -11,7 +11,7 @@ export const SplashScreen: React.FC = () => {
       </div>
 
       <div className="fixed bottom-0 p-4 text-center w-full">
-        <p>Your autonomous agent for on-chain trading on Stacks. <span className="text-[#FF9472]">Learn more</span></p>
+        <p>Your autonomous agent for on-chain trading on Stacks. <span className="text-[#60a5fa]">Learn more</span></p>
       </div>
     </div>
   );

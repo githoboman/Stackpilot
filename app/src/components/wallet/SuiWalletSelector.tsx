@@ -47,8 +47,8 @@ export function SuiWalletSelector({ isOpen, onClose, onBackToLogin }: StacksWall
   return (
     <div className="fixed inset-0 z-[400] flex items-center justify-center p-4 overflow-hidden bg-black/95 backdrop-blur-xl">
       <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#FF6A4D]/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#246AFC]/20 rounded-full blur-[120px]" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#3b82f6]/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#1e3a8a]/20 rounded-full blur-[120px]" />
       </div>
 
       <div className="fixed top-0 left-0 right-0 p-8 flex justify-between items-center z-10">
@@ -62,7 +62,7 @@ export function SuiWalletSelector({ isOpen, onClose, onBackToLogin }: StacksWall
       </div>
 
       <div ref={modalRef} className="relative w-full max-w-[340px] z-10">
-        <div className="bg-[#070B0F] border border-white/10 rounded-[32px] p-5 sm:p-6 shadow-2xl relative overflow-hidden">
+        <div className="bg-[#070b0f] border border-white/10 rounded-[32px] p-5 sm:p-6 shadow-2xl relative overflow-hidden">
           <h2 className="text-xl font-bold text-white text-center mb-6 tracking-tight">
             Connect your Stacks wallet
           </h2>
@@ -70,7 +70,7 @@ export function SuiWalletSelector({ isOpen, onClose, onBackToLogin }: StacksWall
           <button
             onClick={handleConnect}
             disabled={connecting}
-            className="w-full group flex items-center justify-between p-3.5 rounded-full transition-all duration-300 cursor-pointer border bg-[#FF6A4D] border-transparent hover:bg-[#FF7A5E] disabled:opacity-60"
+            className="w-full group flex items-center justify-between p-3.5 rounded-full transition-all duration-300 cursor-pointer border bg-[#3b82f6] border-transparent hover:bg-[#60a5fa] disabled:opacity-60"
           >
             <span className="font-bold text-sm text-white pl-2">
               {connecting ? 'Opening wallet…' : 'Connect Leather / Xverse'}
@@ -81,7 +81,7 @@ export function SuiWalletSelector({ isOpen, onClose, onBackToLogin }: StacksWall
           <div className="text-center mt-6">
             <p className="text-white/40 font-bold text-[10px]">
               No wallet?{' '}
-              <a href="https://leather.io" target="_blank" rel="noreferrer" className="text-[#FF9472] hover:underline">Install Leather</a>
+              <a href="https://leather.io" target="_blank" rel="noreferrer" className="text-[#60a5fa] hover:underline">Install Leather</a>
               {' '}— set it to Testnet.
             </p>
           </div>

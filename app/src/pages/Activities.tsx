@@ -19,14 +19,14 @@ const LEVEL_STYLE: Record<
 > = {
   success: { iconBg: "rgba(59,130,246,0.15)",  iconColor: "#60a5fa",  icon: "check_circle",   label: "Success" },
   warning: { iconBg: "rgba(255,255,255,0.15)",  iconColor: "#ffffff",  icon: "warning",        label: "Warning" },
-  error:   { iconBg: "rgba(239,68,68,0.15)",   iconColor: "#f87171",  icon: "error",          label: "Failed"  },
+  error:   { iconBg: "rgba(148,163,184,0.15)",   iconColor: "#cbd5e1",  icon: "error",          label: "Failed"  },
   info:    { iconBg: "rgba(59,130,246,0.15)",  iconColor: "#60a5fa",  icon: "info",           label: "Info"    },
 };
 
 const FILTER_CHIPS: { key: LevelFilter; label: string; activeColor: string; activeBg: string }[] = [
   { key: "all",     label: "All",     activeColor: "#ffffff",  activeBg: "rgba(255,255,255,0.12)" },
   { key: "success", label: "Success", activeColor: "#60a5fa",  activeBg: "rgba(59,130,246,0.15)"  },
-  { key: "error",   label: "Failed",  activeColor: "#f87171",  activeBg: "rgba(239,68,68,0.15)"   },
+  { key: "error",   label: "Failed",  activeColor: "#cbd5e1",  activeBg: "rgba(148,163,184,0.15)"   },
   { key: "warning", label: "Warning", activeColor: "#ffffff",  activeBg: "rgba(255,255,255,0.15)"  },
   { key: "info",    label: "Info",    activeColor: "#60a5fa",  activeBg: "rgba(59,130,246,0.15)"  },
 ];
@@ -34,7 +34,7 @@ const FILTER_CHIPS: { key: LevelFilter; label: string; activeColor: string; acti
 const STAT_CARDS = [
   { icon: "bar_chart",    iconBg: "rgba(59,130,246,0.15)", iconColor: "#60a5fa",  label: "Total actions",  key: "total" },
   { icon: "check_circle", iconBg: "rgba(255,255,255,0.15)", iconColor: "#ffffff",  label: "Successful",     key: "success" },
-  { icon: "cancel",       iconBg: "rgba(239,68,68,0.15)",  iconColor: "#f87171",  label: "Failed",         key: "failed" },
+  { icon: "cancel",       iconBg: "rgba(148,163,184,0.15)",  iconColor: "#cbd5e1",  label: "Failed",         key: "failed" },
   { icon: "schedule",     iconBg: "rgba(59,130,246,0.15)", iconColor: "#60a5fa",  label: "Last activity",  key: "last" },
 ];
 

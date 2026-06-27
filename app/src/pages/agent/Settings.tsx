@@ -123,7 +123,7 @@ export default function Settings() {
             <div className="pt-2">
               <button
                 onClick={() => disconnect()}
-                className="flex items-center gap-2 text-[13px] font-semibold text-[#f87171] hover:text-[#ef4444] transition-colors"
+                className="flex items-center gap-2 text-[13px] font-semibold text-[#cbd5e1] hover:text-[#e5e7eb] transition-colors"
               >
                 <span className="material-symbols-outlined text-[16px]">logout</span>
                 Disconnect wallet

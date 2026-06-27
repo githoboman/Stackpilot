@@ -45,9 +45,9 @@ const SUGGESTIONS = [
     text: "Revoke the agent",
     desc: "Immediately stop all operations",
     iconBg: "sp-icon-error",
-    borderColor: "rgba(239,68,68,0.35)",
-    bgColor: "rgba(239,68,68,0.06)",
-    accentColor: "#ef4444",
+    borderColor: "rgba(148,163,184,0.35)",
+    bgColor: "rgba(148,163,184,0.06)",
+    accentColor: "#e5e7eb",
   },
 ];
 
@@ -137,7 +137,7 @@ export default function AgentChat() {
           )}
         </div>
         {error && (
-          <p className="mt-4 text-[13px] text-[#f87171] flex items-center gap-1.5">
+          <p className="mt-4 text-[13px] text-[#cbd5e1] flex items-center gap-1.5">
             <span className="material-symbols-outlined text-[16px]">error</span>
             {error}
           </p>
@@ -432,14 +432,14 @@ function ResultCard({ result }: { result: IntentResult }) {
         className="rounded-2xl overflow-hidden relative"
         style={{
           background: "rgba(20,20,20,0.6)",
-          border: ready ? "1px solid rgba(59,130,246,0.25)" : "1px solid rgba(239,68,68,0.25)",
+          border: ready ? "1px solid rgba(59,130,246,0.25)" : "1px solid rgba(148,163,184,0.25)",
           backdropFilter: "blur(16px)",
         }}
       >
         {/* Top accent line */}
         <div
           className="h-0.5 w-full"
-          style={{ background: ready ? "linear-gradient(90deg, #3b82f6, #60a5fa)" : "linear-gradient(90deg, #ef4444, #f87171)" }}
+          style={{ background: ready ? "linear-gradient(90deg, #3b82f6, #60a5fa)" : "linear-gradient(90deg, #e5e7eb, #cbd5e1)" }}
         />
 
         {/* Header */}
@@ -450,7 +450,7 @@ function ResultCard({ result }: { result: IntentResult }) {
           <div className="flex items-center gap-2">
             <span
               className="material-symbols-outlined text-[16px]"
-              style={{ color: ready ? "#3b82f6" : "#f87171", fontVariationSettings: "'FILL' 1" }}
+              style={{ color: ready ? "#3b82f6" : "#cbd5e1", fontVariationSettings: "'FILL' 1" }}
             >
               {ready ? "memory" : "error"}
             </span>
@@ -459,14 +459,14 @@ function ResultCard({ result }: { result: IntentResult }) {
           <div
             className="flex items-center gap-2 px-2.5 py-1 rounded-lg"
             style={{
-              background: ready ? "rgba(59,130,246,0.12)" : "rgba(239,68,68,0.12)",
-              border: `1px solid ${ready ? "rgba(59,130,246,0.25)" : "rgba(239,68,68,0.25)"}`,
+              background: ready ? "rgba(59,130,246,0.12)" : "rgba(148,163,184,0.12)",
+              border: `1px solid ${ready ? "rgba(59,130,246,0.25)" : "rgba(148,163,184,0.25)"}`,
             }}
           >
-            <div className="w-1.5 h-1.5 rounded-full" style={{ background: ready ? "#3b82f6" : "#ef4444" }} />
+            <div className="w-1.5 h-1.5 rounded-full" style={{ background: ready ? "#3b82f6" : "#e5e7eb" }} />
             <span
               className="text-[10px] font-bold uppercase tracking-wider"
-              style={{ color: ready ? "#60a5fa" : "#f87171" }}
+              style={{ color: ready ? "#60a5fa" : "#cbd5e1" }}
             >
               {armedLabel ? "Armed" : ready ? "Executed" : "Rejected"}
             </span>
@@ -544,15 +544,15 @@ function ResultCard({ result }: { result: IntentResult }) {
               View on Hiro Explorer
             </a>
           ) : (
-            <span className="text-[13px] font-medium" style={{ color: ready ? "#60a5fa" : "#f87171" }}>
+            <span className="text-[13px] font-medium" style={{ color: ready ? "#60a5fa" : "#cbd5e1" }}>
               {message}
             </span>
           )}
           <span
             className="text-[11px] font-bold uppercase px-3 py-1.5 rounded-lg"
             style={{
-              background: ready ? "rgba(59,130,246,0.12)" : "rgba(239,68,68,0.12)",
-              color: ready ? "#3b82f6" : "#f87171",
+              background: ready ? "rgba(59,130,246,0.12)" : "rgba(148,163,184,0.12)",
+              color: ready ? "#3b82f6" : "#cbd5e1",
             }}
           >
             {armedLabel ?? (ready ? "Done" : "Blocked")}

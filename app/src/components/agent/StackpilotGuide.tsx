@@ -94,7 +94,7 @@ export function StackpilotGuide({ variant = "app" }: { variant?: "app" | "dark" 
   const heading = dark ? "text-white" : "text-ink";
   const sub = dark ? "text-white/50" : "text-muted";
   const body = dark ? "text-white/70" : "text-ink/80";
-  const mono = dark ? "text-[#FF9472]" : "text-brand";
+  const mono = dark ? "text-[#60a5fa]" : "text-brand";
   const sectionLabel = dark ? "text-white/40" : "text-faint";
 
   return (
@@ -111,7 +111,7 @@ export function StackpilotGuide({ variant = "app" }: { variant?: "app" | "dark" 
             { n: "3", t: "It acts on-chain", d: "Real Bitflow trades execute. Revoke any time and it stops instantly." },
           ].map((s) => (
             <div key={s.n} className={`rounded-2xl border p-4 ${card}`}>
-              <div className={`w-6 h-6 rounded-full text-[12px] font-bold flex items-center justify-center mb-2 ${dark ? "bg-[#FF6A4D]/15 text-[#FF9472]" : "bg-brand/15 text-brand"}`}>
+              <div className={`w-6 h-6 rounded-full text-[12px] font-bold flex items-center justify-center mb-2 ${dark ? "bg-[#3b82f6]/15 text-[#60a5fa]" : "bg-brand/15 text-brand"}`}>
                 {s.n}
               </div>
               <div className={`text-[13px] font-semibold mb-0.5 ${heading}`}>{s.t}</div>

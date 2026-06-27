@@ -95,7 +95,7 @@ export function WalletDrawer({ onClose }: { onClose: () => void }) {
             <div className="text-[13px] font-bold text-muted mb-3">Balance</div>
             <div className="bg-surface-3 border border-line rounded-[18px] px-5 py-4 shadow-sm">
               <div className="flex items-center gap-2 mb-2">
-                <span className="w-7 h-7 rounded-full bg-[#FF6A4D]/15 text-[#FF6A4D] flex items-center justify-center font-bold">Ӿ</span>
+                <span className="w-7 h-7 rounded-full bg-[#3b82f6]/15 text-[#3b82f6] flex items-center justify-center font-bold">Ӿ</span>
                 <span className="text-[16px] font-semibold text-ink/80">STX</span>
               </div>
               <div className="text-[26px] font-bold text-ink leading-tight font-mono">

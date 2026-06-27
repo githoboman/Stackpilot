@@ -22,7 +22,7 @@ interface TxRecord {
 const LEVEL_DOT: Record<AgentAlert["level"], { color: string; glow: string }> = {
   success: { color: "#3b82f6", glow: "0 0 8px rgba(59,130,246,0.7)" },
   warning: { color: "#ffffff", glow: "0 0 8px rgba(255,255,255,0.7)" },
-  error:   { color: "#ef4444", glow: "0 0 8px rgba(239,68,68,0.7)" },
+  error:   { color: "#e5e7eb", glow: "0 0 8px rgba(148,163,184,0.7)" },
   info:    { color: "#60a5fa", glow: "0 0 8px rgba(96,165,250,0.7)" },
 };
 
