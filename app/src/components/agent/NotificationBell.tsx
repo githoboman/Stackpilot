@@ -1,19 +1,18 @@
 import { useState, useRef, useEffect } from "react";
-import { FiCheckCircle, FiAlertTriangle, FiXCircle, FiInfo } from "react-icons/fi";
 import { useAgentWallet, type AgentAlert } from "@/hooks/useAgentWallet";
 
 /**
  * Header notification bell — a real dropdown of the agent's alert feed
- * (useAgentWallet().alerts) with an unread badge. Unread = alerts newer than the
- * last time the user opened the panel (persisted to localStorage).
+ * (useAgentWallet().alerts) with an unread badge. Styled to the dark cockpit
+ * (blue/black/white). Unread = alerts newer than the last time the panel opened.
  */
 const SEEN_KEY = "stackpilot_alerts_seen_ts";
 
-const ICON: Record<AgentAlert["level"], React.ReactNode> = {
-  info: <FiInfo className="w-4 h-4 text-blue-500" />,
-  warning: <FiAlertTriangle className="w-4 h-4 text-amber-500" />,
-  error: <FiXCircle className="w-4 h-4 text-red-500" />,
-  success: <FiCheckCircle className="w-4 h-4 text-emerald-500" />,
+const ICON: Record<AgentAlert["level"], { name: string; color: string }> = {
+  info: { name: "info", color: "#60a5fa" },
+  warning: { name: "warning", color: "#ffffff" },
+  error: { name: "error", color: "#cbd5e1" },
+  success: { name: "check_circle", color: "#60a5fa" },
 };
 
 export function NotificationBell() {
@@ -47,47 +46,64 @@ export function NotificationBell() {
     <div className="relative" ref={ref}>
       <button
         onClick={toggle}
-        className="relative flex h-10 w-10 items-center justify-center bg-transparent text-[#5e5e5e] hover:text-zinc-950 active:scale-[0.98] dark:text-zinc-400 dark:hover:text-zinc-200 cursor-pointer"
+        className="relative flex h-9 w-9 items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-white/5 active:scale-[0.97] transition-all cursor-pointer"
         title="Notifications"
       >
-        <img
-          src="/assets/icons/bell.svg"
-          alt="Notifications"
-          width={16}
-          height={16}
-          className="object-contain flex-shrink-0 dark:[filter:brightness(0)_invert(1)]"
-        />
+        <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: unread > 0 ? "'FILL' 1" : undefined }}>
+          notifications
+        </span>
         {unread > 0 && (
-          <span className="absolute top-1.5 right-1.5 min-w-[16px] h-4 px-1 rounded-full bg-[#3b82f6] text-white text-[10px] font-bold flex items-center justify-center leading-none">
+          <span className="absolute top-1 right-1 min-w-[16px] h-4 px-1 rounded-full bg-[#3b82f6] text-white text-[10px] font-bold flex items-center justify-center leading-none shadow-[0_0_8px_rgba(59,130,246,0.6)]">
             {unread > 9 ? "9+" : unread}
           </span>
         )}
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-[340px] max-h-[420px] overflow-hidden rounded-2xl border border-line bg-surface shadow-[0_20px_50px_rgba(0,0,0,0.18)] z-[120] flex flex-col">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-line">
-            <span className="text-[14px] font-bold text-ink">Notifications</span>
-            <span className="text-[11px] text-muted">{alerts.length} total</span>
+        <div
+          className="absolute right-0 mt-2 w-[340px] max-h-[440px] overflow-hidden rounded-2xl z-[120] flex flex-col"
+          style={{
+            background: "rgba(13,17,23,0.97)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            backdropFilter: "blur(20px)",
+            boxShadow: "0 20px 50px rgba(0,0,0,0.5)",
+          }}
+        >
+          <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+            <span className="text-[14px] font-bold text-on-surface flex items-center gap-2">
+              <span className="material-symbols-outlined text-[18px] text-[#60a5fa]">notifications</span>
+              Notifications
+            </span>
+            <span className="text-[11px] text-outline font-mono">{alerts.length} total</span>
           </div>
           {alerts.length === 0 ? (
-            <div className="px-4 py-10 text-center text-[13px] text-faint">
-              No notifications yet. Agent activity will appear here.
+            <div className="px-4 py-12 text-center text-[13px] text-outline">
+              No notifications yet.
+              <br />
+              Agent activity will appear here.
             </div>
           ) : (
-            <ul className="overflow-y-auto divide-y divide-line">
-              {alerts.map((a) => (
-                <li key={a.id} className="flex gap-2.5 px-4 py-3 hover:bg-surface-3 transition-colors">
-                  <span className="mt-0.5 flex-shrink-0">{ICON[a.level]}</span>
-                  <div className="min-w-0">
-                    <p className="text-[13px] font-semibold text-ink truncate">{a.title}</p>
-                    <p className="text-[12px] text-muted break-words">{a.message}</p>
-                    <p className="text-[10px] text-faint mt-0.5 font-mono">
-                      {new Date(a.timestamp).toLocaleString()}
-                    </p>
-                  </div>
-                </li>
-              ))}
+            <ul className="overflow-y-auto custom-scrollbar divide-y" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+              {alerts.map((a) => {
+                const ic = ICON[a.level];
+                return (
+                  <li key={a.id} className="flex gap-3 px-4 py-3 hover:bg-white/[0.03] transition-colors">
+                    <span
+                      className="mt-0.5 flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center"
+                      style={{ background: ic.color + "22" }}
+                    >
+                      <span className="material-symbols-outlined text-[16px]" style={{ color: ic.color, fontVariationSettings: "'FILL' 1" }}>
+                        {ic.name}
+                      </span>
+                    </span>
+                    <div className="min-w-0">
+                      <p className="text-[13px] font-semibold text-on-surface">{a.title}</p>
+                      <p className="text-[12px] text-on-surface-variant break-words">{a.message}</p>
+                      <p className="text-[10px] text-outline mt-0.5 font-mono">{new Date(a.timestamp).toLocaleString()}</p>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           )}
         </div>

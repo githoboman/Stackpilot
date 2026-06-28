@@ -169,6 +169,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const handleAuthentication = async (walletAddress: string) => {
     try {
+      // Wallet-native auth: in Stackpilot the connected Stacks wallet IS the identity.
+      // The agent API authorizes via the connected wallet (x-dev-wallet) rather than a
+      // server-verified signature, so when dev-auth is on we skip the brittle
+      // nonce/sign/login round-trip entirely and treat connection as authenticated.
+      if (import.meta.env.VITE_AGENT_DEV_AUTH === "true") {
+        await checkUserOnboardingStatus(walletAddress);
+        return;
+      }
+
       // 1. Fast path: Verify existing session cookie
       try {
         const verifyRes = await fetch(`${apiBaseUrl}/api/auth/verify`, {

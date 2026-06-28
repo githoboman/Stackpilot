@@ -39,37 +39,10 @@ export function useProfile() {
       return;
     }
 
-    dispatch(setProfileLoading(true));
-    try {
-      const normalizedAddr = currentAccount.address.toLowerCase();
-      const res = await fetch(`${API_BASE}/api/fetch-user?user_id=${normalizedAddr}`, {
-        credentials: 'include',
-      });
-      if (res.ok) {
-        const data = await res.json();
-        if (data.exists && data.user) {
-          dispatch(setProfile(data.user));
-        } else {
-          dispatch(setProfile(null));
-        }
-      } else if (res.status === 403) {
-        // 403 = auth cookie belongs to a different wallet. Stop retrying —
-        // AuthProvider will re-authenticate and then refetch.
-        console.warn("[useProfile] 403 — stale session, stopping retries");
-        dispatch(setProfile(null));
-      } else {
-        // Any other error (e.g. 500 when the profile backend is unavailable).
-        // Mark fetched (setProfile) so we DON'T retry in a loop — the Stackpilot
-        // agent app runs fine without a user profile.
-        console.warn(`[useProfile] ${res.status} — profile unavailable, continuing without it`);
-        setError("Failed to fetch profile");
-        dispatch(setProfile(null));
-      }
-    } catch (err: any) {
-      // Network error — stop retrying for this session too.
-      setError(err.message || "Error fetching profile");
-      dispatch(setProfile(null));
-    }
+    // Profile persistence is a deleted legacy feature — the Stackpilot agent app is
+    // wallet-native and needs no user profile. Resolve to null without an API call so
+    // we don't hit a removed route.
+    dispatch(setProfile(null));
   }, [currentAccount?.address, dispatch]);
 
   useEffect(() => {
